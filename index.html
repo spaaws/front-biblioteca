@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biblioteca</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>📚 Biblioteca</h1>
+    <span id="status" class="status">verificando API…</span>
+  </header>
+
+  <main>
+    <!-- Formulário: serve para cadastrar e para editar -->
+    <section class="card">
+      <h2 id="form-titulo">Cadastrar livro</h2>
+      <form id="form-livro">
+        <input type="hidden" id="id">
+        <label>Título *
+          <input id="titulo" required placeholder="Dom Casmurro">
+        </label>
+        <label>Autor *
+          <input id="autor" required placeholder="Machado de Assis">
+        </label>
+        <label>Ano
+          <input id="ano" type="number" placeholder="1899">
+        </label>
+        <div class="botoes">
+          <button type="submit" id="btn-salvar">Cadastrar</button>
+          <button type="button" id="btn-cancelar" class="secundario" hidden>Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Lista de livros -->
+    <section class="card">
+      <div class="topo-lista">
+        <h2>Livros <span id="total" class="total"></span></h2>
+        <input id="busca" type="search" placeholder="Buscar por título ou autor">
+      </div>
+      <p id="mensagem" class="mensagem"></p>
+      <div class="tabela-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>Título</th><th>Autor</th><th>Ano</th><th></th></tr>
+          </thead>
+          <tbody id="lista"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="aviso" class="aviso" hidden></div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
